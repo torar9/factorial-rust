@@ -16,7 +16,7 @@ fn main()
         writeln!(std::io::stderr(), "Invalid parameters!").unwrap();
         std::process::exit(1);
     }
-    //calculate_factorial();
+
     let number = parse_args(&args);
     match number
     {
@@ -27,5 +27,4 @@ fn main()
             std::process::exit(1);
         },
     }
-    println!("{:?}", parse_args(&args));
 }
