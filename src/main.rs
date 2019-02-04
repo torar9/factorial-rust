@@ -14,13 +14,24 @@ fn main()
     if args.len() < 1
     {
         writeln!(std::io::stderr(), "Invalid parameters!").unwrap();
+        writeln!(std::io::stderr(), "Put number into app parameters").unwrap();
         std::process::exit(1);
     }
 
     let number = parse_args(&args);
     match number
     {
-        Ok(x) => calculate_factorial(x),
+        Ok(x) =>
+        {
+            if x < 0
+            {
+                writeln!(std::io::stderr(), "Unable to calculate factorial of negative number");
+            }
+            else
+            {
+                calculate_factorial(x)
+            }
+        },
         Err(err) =>
         {
             writeln!(std::io::stderr(), "{}", err).unwrap();

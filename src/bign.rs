@@ -3,8 +3,15 @@
 pub fn calculate_factorial(num: u32)
 {
     let mut array: Vec<u32> = Vec::new();
-    fill_vector(num, &mut array);
 
+    if num == 0
+    {
+        fill_vector(1, &mut array);
+        print_vec(&array);
+        return;
+    }
+
+    fill_vector(num, &mut array);
     let mut numer =  num - 1;
     while numer > 1
     {
